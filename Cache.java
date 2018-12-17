@@ -20,14 +20,11 @@ class Cache {
                 cache.put(key, value);
                 return 1;
             } else {
-                if (!isFull()){
-                    cache.put(key, value);
-                    return -1;
-                } else {
+                if (isFull()){
                     remove();
-                    cache.put(key, value);
-                    return -1;
                 }
+                cache.put(key, value);
+                return -1;
             }
         }
 
